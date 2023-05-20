@@ -1,0 +1,16 @@
+{
+  "name": "cors-proxy",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler publish",
+    "devserver": "wrangler dev",
+    "lint": "npx prettier . --write"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230419.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.4",
+    "wrangler": "^3.0.0"
+  }
+}
