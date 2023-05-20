@@ -1,40 +1,13 @@
-name: Deploy
+version: 2
+updates:
+  # Update node deps
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
 
-on:
-  push:
-    branches:
-      - main
-
-  # Add a schedule to run the job every day at 0:00 UTC
-  schedule:
-    - cron: "0 0 * * *"
-
-  # Allow running this workflow manually.
-  workflow_dispatch:
-
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-          with:
-            node-version: "lts/*"
-            cache: npm
-            cache-dependency-path: package-lock.json
-      - name: Install dependencies
-        run: |
-          npm install
-      - name: Run linter
-        run: |
-          npx prettier --check .
-
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Publish
-        uses: cloudflare/wrangler-action@2.0.0
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  # Update gh-action deps
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
