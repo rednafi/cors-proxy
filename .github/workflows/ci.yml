@@ -22,11 +22,13 @@ jobs:
         with:
           node-version: "lts/*"
           cache: npm
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: cors-proxy/package-lock.json
       - name: Install dependencies
+        working-directory: ./cors-proxy
         run: |
           npm install
       - name: Run linter
+        working-directory: ./cors-proxy
         run: |
           npx prettier --check .
 
@@ -38,3 +40,4 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: "cors-proxy"
