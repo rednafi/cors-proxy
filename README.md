@@ -67,7 +67,7 @@ using create-cloudflare version 2.0.7
 │
 ╰ See you again soon!
 ```
-</details>&nbsp;
+</details>
 
 ## Development
 
