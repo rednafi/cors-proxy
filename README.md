@@ -82,6 +82,10 @@ using create-cloudflare version 2.0.7
     ```sh
     npm run devserver
     ```
+* Deploy from the local environment:
+    ```sh
+    npm run deploy
+    ```
 
 ## Deployment
 
