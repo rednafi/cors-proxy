@@ -10,18 +10,18 @@
 
 export default {
   async fetch(request, env, ctx) {
-    // Extract method, url and headers from incoming request object.
+    // Extract method, url and headers from the incoming request object.
     const { method, url, headers } = request;
 
-    // Extract destination url from query string.
+    // Extract destination url from the query string.
     const destUrl = new URL(url).searchParams.get("url");
 
-    // If destination url is not present, return 400.
+    // If the destination url is not present, return 400.
     if (!destUrl) {
       return new Response("Missing destination URL.", { status: 400 });
     }
 
-    // If request method is OPTIONS, return CORS headers.
+    // If the request method is OPTIONS, return CORS headers.
     if (
       method === "OPTIONS" &&
       headers.has("Origin") &&
